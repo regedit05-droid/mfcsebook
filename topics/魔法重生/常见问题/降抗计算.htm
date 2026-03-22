@@ -1,0 +1,714 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<html>
+
+<head>
+<title>降抗计算</title>
+
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=ProgId content=Word.Document>
+
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:等线;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:DengXian;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
+@font-face
+	{font-family:"\@等线";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:等线;
+	mso-ascii-font-family:等线;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:等线;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:等线;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-family:等线;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+ /* Page Definitions */
+ @page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<link rel="stylesheet" href="style.css?v=1.0.0">
+<script src="main,js?v=1.0.0"></script>
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+	overflow: auto; 
+	background-color: #FFFFFF; 
+}
+
+#winchm_template_top{
+	margin: 0px;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+
+	font-family: arial, helvetica, sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #00CC00;
+
+	width: auto;
+	background-color: #A6CAF0;
+	text-align: left;
+	background-image: url('../../template/hgrad.gif');
+	background-repeat: repeat;
+	
+}
+
+#winchm_template_navigation{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	padding-left: 5px;
+	padding-bottom: 6px;
+	padding-right: 5px;
+
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #808080; 
+
+	border-top-style: solid;
+	border-top-width: 3px;
+	border-top-color: #C1C1C1;
+
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-bottom-color: #DBDBDB;
+	
+	background-color: #FFFFFF;
+	width: auto;
+}
+
+#winchm_template_button{
+	float: right;
+	top: -3px;
+	position: relative;
+	text-align: right;
+	right: -5px;
+	height: auto;
+}
+
+#winchm_template_title{
+	font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	color: 353535;	
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	padding-top: 10px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-bottom-color: #C7C7C7;
+
+	width: auto;
+	background-color: #FFFFFF;
+	text-align: left;
+}
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+#winchm_template_footer{
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+	
+	margin-top: 0px;
+	margin-left: 15px;
+	margin-bottom: 5px;
+	margin-right: 15px;
+
+	padding-top: 6px;
+	padding-left: 0px;
+	padding-bottom: 20px;
+	padding-right: 0px;
+
+	font-family: arial, helvetica, sans-serif;
+	font-size: 9px;
+	color: #909090;
+
+	text-align: left;	
+	width: auto;	
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: #0000ff}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #0000ff}
+#winchm_template_navigation a:active {text-decoration: none; color: #0000ff}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000ff}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {
+	text-decoration: underline;
+	color: #990000;
+
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(9);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=魔法重生/常见问题/降抗计算.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+
+<div id="winchm_template_top"><div id="winchm_template_button"><A href="符文袋子.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template/btn_prev_n.gif" border="0"></a><A href="../魔法符文/魔法符文.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template/btn_next_n.gif" border="0"></a></div>
+<nobr><IMG align=absMiddle src="../../template/logo.gif">&nbsp;<a href="http://www.cnd2.net:5009" target="_blank">暗黑破坏神II之魔法重生</a></nobr></div>
+<div id="winchm_template_navigation">cnd2 &gt; 
+<A href="../../首页/魔法重生.htm">魔法重生</A> &gt; <A href="../../$$unsavedpage1.htm">常见问题</A> &gt; </div>
+<div id="winchm_template_title">降抗计算</div>
+<div id="winchm_template_content">
+
+<div class=WordSection1 style="LAYOUT-GRID:  15.6pt none">
+
+<p class=MsoNormal><b style="mso-bidi-font-weight: normal"><span
+ style="FONT-SIZE: 14pt">破免计算<span lang=EN-US></span></span></b></p>
+
+<p class=MsoNormal>本章介绍魔法重生抗性破免计算。</p>
+
+<p class=MsoNormal>由于不同的抗性需要不同的光环，这里以魔法职业为例。</p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt; mso-bidi-font-size: 15.0pt">衣服</span>
+选泰瑞尔的力量（鸟人甲）<span lang=EN-US>4</span>孔<span lang=EN-US>20</span>级神罚。镶嵌<span
+ lang=EN-US>4</span>颗神罚石要<span lang=EN-US>10</span>级神罚光环的。顶级衣服选神圣之光镶嵌<span
+ lang=EN-US>4</span>颗神罚石。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt; mso-bidi-font-size: 11.0pt">手套</span>
+选圣甲手套自带<span lang=EN-US>30</span>级幻境光环，打三孔镶嵌三颗<span lang=EN-US>10</span>级幻境光环降抗石。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt; mso-bidi-font-size: 11.0pt">鞋子</span>
+选死亡践踏用重新打造<span lang=EN-US>23</span>级审判光环，打三孔镶嵌三颗<span lang=EN-US>10</span>级审判光环的审判石。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt; mso-bidi-font-size: 11.0pt">腰带</span>
+选圣甲要带自带<span lang=EN-US>20</span>级神罚光环打一孔，镶嵌一颗<span lang=EN-US>10</span>级神罚光环的石头。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt; mso-bidi-font-size: 11.0pt">戒指</span>
+用<span lang=EN-US>20</span>级审判光环的嗜血戒指，有条件可以自行增加神罚光环。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt">项链</span> 选魔力项圈。默认的魔力项圈不带光环，玩家可以定制。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt">武器</span> 选希望之翼 用<span
+ lang=EN-US>6</span>颗健康石进行镶嵌，推荐镶嵌神罚石。注意一定要用相同光环的石头。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt">头盔</span> 推荐将降抗石变成符文，然后去做符文之语。这样既获得符文之语的属性，又保留了降抗石的光环。推荐用满级的神罚石。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style="FONT-SIZE: 16pt">盾牌</span> 和头盔一样推荐用降抗石变的符文制作。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>以上装备将抗光环<span lang=EN-US>398</span>级（没加项链定制光环和戒指打造的光环）。另外加<span
+ lang=EN-US>15</span>额外降抗加成。加诅咒伤害加深为<span lang=EN-US>20</span>。合计至少可以破免<span
+ lang=EN-US>517</span>点。</p>
+
+<p class=MsoNormal>目前本服怪物最高抗性50<span lang=EN-US>0</span>。</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=777
+ style="WIDTH:
+ 583pt; BORDER-COLLAPSE: collapse; MARGIN-LEFT: -0.15pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt">
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 0; mso-yfti-firstrow: yes"  >
+  <td width=777 nowrap colspan=10 style="BORDER-TOP: windowtext 1pt  solid; HEIGHT: 23.25pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 583pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >降抗计算<span lang=EN-US></span></span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 1">
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >光环<span lang=EN-US></span></span></p>
+  </td>
+  <td width=76 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 2cm;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >衣服<span lang=EN-US></span></span></p>
+  </td>
+  <td width=75 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 55.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >手套<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >头盔<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >鞋子<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >腰带<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >戒指<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >项链<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >武器<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >盾牌<span lang=EN-US></span></span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 2">
+  <td width=208 style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT: windowtext 1pt  solid; WIDTH: 155.7pt; BORDER-BOTTOM: windowtext 1pt  solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >幻境<span lang=EN-US></span></span></p>
+  </td>
+  <td width=76 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 2cm;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=75 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 55.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >60</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >10</span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 3">
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >审判<span lang=EN-US></span></span></p>
+  </td>
+  <td width=76 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 2cm;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=75 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 55.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >53</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >40</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 4">
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >神罚<span lang=EN-US></span></span></p>
+  </td>
+  <td width=76 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 2cm;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >100</span></p>
+  </td>
+  <td width=75 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 55.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >30</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >30</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >60</span></p>
+  </td>
+  <td width=60 nowrap style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 44.95pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >40</span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 5">
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >额外加成<span lang=EN-US></span></span></p>
+  </td>
+  <td width=570 nowrap colspan=9 style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 427.3pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM:  0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >15</span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 6">
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >诅咒（伤害加深）<span lang=EN-US></span></span></p>
+  </td>
+  <td width=570 nowrap colspan=9 style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 427.3pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM:  0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >20</span><span style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >　<span lang=EN-US></span></span></p>
+  </td>
+ </tr>
+ <tr style="HEIGHT: 23.25pt; mso-yfti-irow: 7; mso-yfti-lastrow: yes"  >
+  <td width=208 nowrap style="BORDER-TOP: medium none;  HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 155.7pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; mso-border-left-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  
+  style
+  ="FONT-SIZE: 11pt; COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >至少可破免抗性<span lang=EN-US></span></span></p>
+  </td>
+  <td width=570 nowrap colspan=9 style="BORDER-TOP:  medium none; HEIGHT: 23.25pt; BORDER-RIGHT:  windowtext 1pt solid; WIDTH: 427.3pt;  BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM:  0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt"    >
+  <p class=MsoNormal align=center style="TEXT-ALIGN: center; mso-pagination: widow-orphan"><span
+  lang=EN-US style="FONT-SIZE:
+  11pt;
+  COLOR: black; mso-ascii-font-family: 等线; mso-fareast-font-family: 等线; mso-hansi-font-family: 等线; mso-bidi-font-family: 宋体; mso-font-kerning: 0pt" 
+     >577</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</div>
+<div id="winchm_template_footer">bbs.cnd2.net 玩家群：145281991</div>
+
+</body>
+
+</html>
